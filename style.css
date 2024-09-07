@@ -45,3 +45,6 @@ a:hover {
     margin-top: 20px; /* Adiciona espaço acima do contêiner */
 }
 
+img {
+    border-radius: 15px; /* Borda arredondada */
+}
