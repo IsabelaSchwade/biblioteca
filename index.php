@@ -55,7 +55,7 @@ if ($resultadoLivros->num_rows == 0) {
             echo "<td>{$linha['id']}</td>";
             echo "<td><img src='{$linha['foto_capa']}' alt='Capa do livro' style='width:200px; height:auto;'></td>";
             echo "<td><a href='deleteLivro.php?id={$linha['id']}'>Excluir livro</a> |
-                      <a href='form_editar.php?id={$linha['id']}' class='separador'>Editar livro</a>
+                      <a href='form_editarLivro.php?id={$linha['id']}' class='separador'>Editar livro</a>
                  </td>";
         echo "</tr>";
     }
