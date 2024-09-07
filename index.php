@@ -13,8 +13,7 @@ $queryAutores = "SELECT * FROM autor";
 $resultadoAutores = $db->query($queryAutores); 
 
 
-echo "<h1>Biblioteca</h1>"; // título da página
-echo "<br>";
+echo "<h1>Biblioteca</h1>";
 echo "<h2>Livros</h2>";
 
 ?>
