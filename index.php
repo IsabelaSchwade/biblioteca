@@ -92,7 +92,7 @@ if ($resultadoAutores->num_rows == 0) {
             echo "<td>{$linha['nome_autor']}</td>";
             echo "<td>{$linha['id_autor']}</td>";
             echo "<td><a href='deleteAutor.php?id_autor={$linha['id_autor']}'>Excluir autor</a> |
-                    <a href='form_editar_autor.php?id_autor={$linha['id_autor']}' class='separador'>Editar autor</a>
+                    <a href='form_editarAutor.php?id_autor={$linha['id_autor']}' class='separador'>Editar autor</a>
                 </td>";
         echo "</tr>";
     }

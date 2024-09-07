@@ -1,7 +1,5 @@
 <?php
-
 if (isset($_POST)) {
-    
     $db = new mysqli("localhost", "root", "", "biblioteca");
     
     $nome_autor = ($_POST['nome_autor']);
