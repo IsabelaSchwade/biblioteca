@@ -102,6 +102,9 @@ echo "<br>";
 echo "<div class='link-container'>"; 
 echo "<a href='form_adicionarAutor.php'>Adicionar novo autor</a><br>";
 echo "</div>";
+echo"<br>";
+echo"<br>";
+echo"<a href='emprestimo.php'> Meus empréstimos</a>";
 
 $db->close();
 ?>
