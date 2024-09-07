@@ -44,7 +44,7 @@ $resultado_autores = $db->query($query_autores);
     </form>
     <br>
     <p>Não encontrou o autor que você queria?</p>
-    <a href='form_adiconarAutor.php'>Adicionar autor</a>
+    <a href='form_adicionarAutor.php'>Adicionar autor</a>
     <br>
     <br>
     <a href='index.php'>Voltar para a página inicial</a>

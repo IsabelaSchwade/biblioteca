@@ -100,7 +100,7 @@ if ($resultadoAutores->num_rows == 0) {
 echo "</table>";
 echo "<br>";
 echo "<div class='link-container'>"; 
-echo "<a href='form_adicionarLivro.php'>Adicionar novo autor</a><br>";
+echo "<a href='form_adicionarAutor.php'>Adicionar novo autor</a><br>";
 echo "</div>";
 
 $db->close();
