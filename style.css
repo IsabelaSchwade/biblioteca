@@ -2,11 +2,11 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-h1, h2{
-    text-align: center;
-    color:deepskyblue;
-}
+/* Estilo para a tabela e suas células */
 
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
 table {
     border-collapse: collapse; /* Combina bordas adjacentes */
     width: 100%; /* Define a largura da tabela como 100% */
@@ -22,6 +22,12 @@ td, th {
 th {
     background-color: #f2f2f2; /* Cor de fundo para os cabeçalhos */
     font-weight: bold; /* Negrito para os cabeçalhos */
+}
+
+h1, h2 {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color:deepskyblue;
 }
 
 a {
@@ -45,79 +51,6 @@ a:hover {
     margin-top: 20px; /* Adiciona espaço acima do contêiner */
 }
 
-img {
-    border-radius: 15px; /* Borda arredondada */
-}
-
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-    margin: 0;
-    padding: 0;
-}
-
-h1 {
+h2{
     text-align: center;
-    color: #333;
-    margin-top: 30px;
 }
-
-#container {
-    max-width: 500px;
-    margin: 40px auto;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-label {
-    display: block;
-    margin-bottom: 10px;
-    font-weight: bold;
-    color: #333;
-}
-
-input[type="text"],
-input[type="date"],
-input[type="number"],
-select,
-input[type="file"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    box-sizing: border-box;
-}
-
-input[type="submit"] {
-    width: 100%;
-    padding: 12px;
-    background-color: deepskyblue;
-    color: white;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-input[type="submit"]:hover {
-    background-color: #007acc;
-}
-
-a {
-    display: block;
-    text-align: center;
-    margin-top: 20px;
-    text-decoration: none;
-    color: deepskyblue;
-    font-weight: bold;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-
