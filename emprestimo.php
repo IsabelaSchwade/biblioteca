@@ -8,46 +8,48 @@ if ($db->connect_error) {
     die("Conexão falhou: " . $db->connect_error);
 }
 
-// Consulta para listar todos os livros disponíveis
-$queryLivros = "SELECT id, nome_livro FROM livro";
-$resultadoLivros = $db->query($queryLivros);
+$queryEmprestimo = "SELECT emprestimo.*, livro.nome_livro 
+    FROM emprestimo
+    JOIN livro ON livro.id = emprestimo.id_livro"; // Supondo que a coluna de ligação seja 'id_livro'
 
-// Verifique se a consulta retornou resultados
-if (!$resultadoLivros) {
-    die("Erro na consulta: " . $db->error);
-}
+$resultadoEmprestimo = $db->query($queryEmprestimo);
 
-echo "<h1>Cadastrar Empréstimo</h1>";
+echo "<h1>Meus empréstimos</h1>";
 
-echo <<<HTML
-<form method="post" action="addEmprestimo.php">
-    <label for="nome_pessoa">Nome da Pessoa:</label>
-    <input type="text" id="nome_pessoa" name="nome_pessoa" required><br><br>
-    
-    <label for="email_pessoa">E-mail:</label>
-    <input type="email" id="email_pessoa" name="email_pessoa" required><br><br>
-    
-    <label for="livro">Selecione o Livro:</label>
-    <select name="livro" id="livro" required>
-HTML;
+echo "<br><br>";
+echo "<table>";
+echo "<tr>
+        <td>Pessoa que emprestou: </td>
+        <td>E-mail:</td>
+        <td>Nome do livro: </td>
+        <td>Data do empréstimo: </td>
+        <td>Selecione</td>
+    </tr>";
 
-if ($resultadoLivros->num_rows > 0) {
-    while ($livro = $resultadoLivros->fetch_assoc()) {
-        echo "<option value='{$livro['id']}'>{$livro['nome_livro']}</option>";
-    }
+if ($resultadoEmprestimo->num_rows == 0) {
+    echo "<tr><td>Você não emprestou nenhum livro!</td></tr>";
 } else {
-    echo "<option value=''>Nenhum livro disponível</option>";
+    while ($linha = $resultadoEmprestimo->fetch_assoc()) {
+        echo "<tr>";
+            echo "<td>{$linha['nome_pessoa']}</td>";
+            echo "<td>{$linha['email_pessoa']}</td>";
+            echo "<td>{$linha['nome_livro']}</td>";
+            echo "<td>{$linha['data_emprestimo']}</td>";
+            echo "<td><a href='deleteLivro.php?id_emprestimo={$linha['id_emprestimo']}' class='separador'>Marcar devolução</a> |
+                     
+                 </td>";
+        echo "</tr>";
+    }
 }
 
-echo <<<HTML
-    </select><br><br>
-    
-    <label for="data_emprestimo">Data do Empréstimo:</label>
-    <input type="date" id="data_emprestimo" name="data_emprestimo" required><br><br>
-    
-    <input type="submit" value="Cadastrar Empréstimo">
-</form>
-HTML;
+echo "</table>";
 
+// Feche a conexão com o banco de dados
 $db->close();
+echo"<br>";
+echo"<br>";
+echo "<a href='form_addEmprestimo.php'>Adicionar novo empréstimo</a><br>";
+echo"<br>";
+echo"<br>";
+echo "<a href='index.php'>Voltar para página inicial</a><br>";
 ?>

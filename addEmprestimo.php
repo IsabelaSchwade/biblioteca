@@ -6,27 +6,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Verificar se a conexão foi bem-sucedida
     if ($db->connect_error) {
-        die("Falha na conexão: " . $db->connect_error);
+        die("Conexão falhou: " . $db->connect_error);
     }
 
-    // Depuração: Verificar o conteúdo do $_POST
-    echo '<pre>';
-    print_r($_POST);
-    echo '</pre>';
-    exit();
-
-    // Verificar se os campos esperados estão definidos
-    if (!isset($_POST['nome_pessoa'], $_POST['email_pessoa'], $_POST['livro'], $_POST['data_emprestimo'])) {
+    // Verificar se todos os campos necessários estão definidos
+    if (!isset($_POST['nome_pessoa'], $_POST['email_pessoa'], $_POST['id_livro'], $_POST['data_emprestimo'])) {
         die("Dados do formulário ausentes.");
     }
 
     $pessoa = $db->real_escape_string($_POST['nome_pessoa']);
     $email = $db->real_escape_string($_POST['email_pessoa']);
-    $livro_emprestado = intval($_POST['livro']); // Use intval para garantir que é um número
+    $livro_emprestado = intval($_POST['id_livro']); // Use intval para garantir que é um número
     $data_emprestimo = $db->real_escape_string($_POST['data_emprestimo']);
 
     // Verificar se o livro existe
-    $query_verifica_livro = "SELECT id_livro FROM livro WHERE id_livro = $livro_emprestado";
+    $query_verifica_livro = "SELECT id FROM livro WHERE id = $livro_emprestado";
     $resultado_verifica_livro = $db->query($query_verifica_livro);
 
     if ($resultado_verifica_livro->num_rows === 0) {
