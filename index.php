@@ -48,8 +48,8 @@ echo "<tr>
                 echo "<td>{$linha['nome_autor']}</td>";
                 echo "<td>{$linha['id']}</td>";
                 echo "<td><img src='{$linha['foto_capa']}' alt='Capa do livro' style='width:200px; height:auto;'></td>";
-                echo "<td><a href='deleteLivro.php?idlivro={$linha['id']}'>Excluir livro</a>
-                          <a href='form_editar.php?idlivro={$linha['id']}' class='separador'>Editar livro</a>
+                echo "<td><a href='deleteLivro.php?id={$linha['id']}'>Excluir livro</a>
+                          <a href='form_editar.php?id={$linha['id']}' class='separador'>Editar livro</a>
                      </td>";
             echo "</tr>";
         }
