@@ -41,13 +41,13 @@ $resultado_autores = $db->query($query_autores);
     <input type="file" id="foto_capa" name="foto_capa" accept="image/*">
 
     <input type="submit" name="botao" value="Adicionar">
-</form>
-<br>
-<p>Não encontrou o autor que você queria?</p>
-<a href='form_adiconarAutor.php'>Adicionar autor</a>
-<br>
-<br>
-<a href='index.php'>Voltar para a página inicial</a>
+    </form>
+    <br>
+    <p>Não encontrou o autor que você queria?</p>
+    <a href='form_adiconarAutor.php'>Adicionar autor</a>
+    <br>
+    <br>
+    <a href='index.php'>Voltar para a página inicial</a>
 
-</body>
-</html>
+    </body>
+    </html>
