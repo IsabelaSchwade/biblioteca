@@ -1,27 +1,17 @@
 <?php
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+if (isset($_POST)) {
 
     $db = new mysqli("localhost", "root", "", "biblioteca");
-
-    if ($db->connect_error) {
-        die("Conexão falhou: " . $db->connect_error);
-    }
-
-    $diretorioDestino = "uploads/"; // Definindo o diretório onde as imagens serão salvas
+    $diretorioDestino = "uploads/";
 
     // Verifica se houve algum erro no upload
     if (isset($_FILES['foto_capa']) && $_FILES['foto_capa']['error'] == 0) {
-        // Extrai a extensão do arquivo
-        $extensao = strtolower(pathinfo($_FILES['foto_capa']['name'], PATHINFO_EXTENSION));
-
-        // Define o caminho completo do arquivo no diretório de destino
         $destinoArquivo = $diretorioDestino . basename($_FILES['foto_capa']['name']);
 
-        // Verifica se o arquivo é uma imagem
+        // Verificar se o arquivo é uma imagem
         $checagem_imagem = getimagesize($_FILES['foto_capa']['tmp_name']);
         if ($checagem_imagem !== false) {
-            // Move o arquivo para o diretório de destino
             if (move_uploaded_file($_FILES['foto_capa']['tmp_name'], $destinoArquivo)) {
                 $fotoCapaURL = $db->real_escape_string($destinoArquivo);
             } else {
@@ -37,16 +27,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit();
     }
 
-    $nome_livro = $db->real_escape_string($_POST['nome_livro']);
-    $data_lancamento = $db->real_escape_string($_POST['data_lancamento']);
-    $id_autor = intval($_POST['id_autor']);
+    $nome_livro = $_POST['nome_livro'];
+    $data_lancamento = $_POST['data_lancamento'];
+    $id_autor = $_POST['id_autor'];
 
     // Verificar se o autor existe
     $query_autor = "SELECT id_autor FROM autor WHERE id_autor = $id_autor";
     $resultado_autor = $db->query($query_autor);
 
     if ($resultado_autor->num_rows > 0) {
-        // Inserir no banco de dados
         $query = "INSERT INTO livro (nome_livro, data_lancamento, autor_livro, foto_capa) 
                   VALUES ('$nome_livro', '$data_lancamento', $id_autor, '$fotoCapaURL')";
 
@@ -60,7 +49,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo "Autor não encontrado!";
     }
 
-    // Fecha a conexão com o banco de dados
     $db->close();
 }
 ?>
