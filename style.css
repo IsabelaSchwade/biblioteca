@@ -4,4 +4,44 @@
 
 h1, h2{
     text-align: center;
+    color:deepskyblue;
 }
+
+table {
+    border-collapse: collapse; /* Combina bordas adjacentes */
+    width: 100%; /* Define a largura da tabela como 100% */
+}
+
+td, th {
+    padding: 8px; /* Adiciona espaço de 8 pixels em todas as células */
+    border: 1px solid #ddd; /* Adiciona bordas finas para as células */
+    text-align: left; /* Alinha o texto à esquerda */
+}
+
+/* Estilo para cabeçalhos da tabela */
+th {
+    background-color: #f2f2f2; /* Cor de fundo para os cabeçalhos */
+    font-weight: bold; /* Negrito para os cabeçalhos */
+}
+
+a {
+    text-decoration: none; /* Remove o sublinhado dos links */
+    color:black 
+}
+
+a:hover {
+    color: deepskyblue; /* Define a cor do link ao passar o mouse */
+    text-decoration: underline; /* Adiciona o sublinhado ao passar o mouse */
+}
+
+.separador {
+    border-left: 1px solid #000; /* Adiciona uma linha vertical à esquerda */
+    padding-left: 10px; /* Adiciona espaço após a linha */
+    margin-left: 10px; /* Adiciona espaço antes da linha */
+}
+
+.link-container {
+    text-align: center; /* Centraliza o conteúdo dentro do contêiner */
+    margin-top: 20px; /* Adiciona espaço acima do contêiner */
+}
+
