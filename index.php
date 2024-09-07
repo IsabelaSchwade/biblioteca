@@ -91,9 +91,9 @@ echo "<tr>
     }
     echo "</table>";
     echo "<br>";
-    echo "<div class='link-container'>"; // Adicionando o container para os links
-    echo "<a href='form_adicionar.php'>Adicionar novo livro</a><br>";
-    echo "<a href='emprestimos.php'>Meus empréstimos</a>";
+    echo "<div class='link-container'>"; 
+    echo "<a href='form_adicionarLivro.php'>Adicionar novo livro</a><br>";
+ 
     echo "</div>";
 
 
