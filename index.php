@@ -26,4 +26,33 @@ echo <<<HTML
 </select>
 <input type="submit" value="Ordenar">
 HTML;
+
+echo "<br><br>";
+echo "<table>";
+echo "<tr>
+        <td>Nome do livro</td>
+        <td>Data de lançamento</td>
+        <td>Autor(a) do livro</td>
+        <td>Id</td>
+        <td>Capa do livro</td>
+        <td>Selecione</td>
+    </tr>";
+
+    if ($resultadoLivros->num_rows == 0) {
+        echo "Você ainda não cadastrou livros na sua biblioteca";
+    } else {
+        while ($linha = $resultadoLivros->fetch_assoc()) {
+            echo "<tr>";
+                echo "<td>{$linha['nome_livro']}</td>";
+                echo "<td>{$linha['data_lancamento']}</td>";
+                echo "<td>{$linha['nome_autor']}</td>";
+                echo "<td>{$linha['id']}</td>";
+                echo "<td><img src='{$linha['foto_capa']}' alt='Capa do livro' style='width:200px; height:auto;'></td>";
+                echo "<td><a href='deleteLivro.php?idlivro={$linha['id']}'>Excluir livro</a>
+                          <a href='form_editar.php?idlivro={$linha['id']}' class='separador'>Editar livro</a>
+                     </td>";
+            echo "</tr>";
+        }
+    }
+    echo "</table>";
 ?>
