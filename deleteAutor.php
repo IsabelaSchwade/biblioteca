@@ -33,8 +33,6 @@ if (isset($_GET['id_autor'])) {
         }
     }
 
-  
-
     
     // Excluir todos os livros associados ao autor
     $query_excluir_livros = "DELETE FROM livro WHERE autor_livro = $id_autor";

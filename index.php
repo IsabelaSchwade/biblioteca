@@ -7,19 +7,41 @@ if ($db->connect_error) {
     die("Conexão falhou: " . $db->connect_error);
 }
 
-// Consulta e exibição dos livros
+// Capturar a ordenação escolhida para livros
+$ordenarLivroPor = isset($_GET['ordenar_por']) ? $_GET['ordenar_por'] : '';
+
+// Consulta base para livros
 $queryLivros = "SELECT livro.*, autor.nome_autor 
                 FROM livro 
                 JOIN autor ON livro.autor_livro = autor.id_autor";
+
+// Adicionar a cláusula de ordenação conforme a opção selecionada
+if ($ordenarLivroPor === 'nome_livro') {
+    $queryLivros .= " ORDER BY livro.nome_livro ASC"; // Ordena por título do livro
+} elseif ($ordenarLivroPor === 'autor_livro') {
+    $queryLivros .= " ORDER BY autor.nome_autor ASC"; // Ordena por nome do autor
+} elseif ($ordenarLivroPor === 'data_lancamento') {
+    $queryLivros .= " ORDER BY livro.data_lancamento ASC"; // Ordena por data de lançamento, do mais recente ao mais antigo
+}
+
 $resultadoLivros = $db->query($queryLivros);
 
-// Consulta e exibição dos autores
+// Capturar a ordenação escolhida para autores
+$ordenarAutorPor = isset($_GET['ordenarAutor_por']) ? $_GET['ordenarAutor_por'] : '';
+
+// Definir a consulta para autores com ou sem ordenação
 $queryAutores = "SELECT * FROM autor";
+
+if ($ordenarAutorPor === 'nome_autor') {
+    $queryAutores .= " ORDER BY nome_autor ASC"; // Ordena pelo nome do autor em ordem alfabética
+}
+
 $resultadoAutores = $db->query($queryAutores);
 
 echo "<h1>Biblioteca</h1>";
 echo "<h2>Livros</h2>";
 
+// Formulário de ordenação de livros
 echo <<<HTML
 <form method="get" action="">
     <label for="ordenar_por">Ordenar livro por:</label>
@@ -61,12 +83,14 @@ if ($resultadoLivros->num_rows == 0) {
     }
 }
 echo "</table>";
-echo"<br>";
+echo "<br>";
 echo "<div class='link-container'>"; 
 echo "<a href='form_adicionarLivro.php'>Adicionar novo livro</a><br>";
 echo "</div>";
+
 echo "<h2>Autores</h2>";
 
+// Formulário de ordenação de autores
 echo <<<HTML
 <form method="get" action="">
     <label for="ordenarAutor_por">Ordenar autor por:</label>
@@ -108,6 +132,7 @@ echo"<a href='emprestimo.php'> Meus empréstimos</a>";
 echo"<br>";
 echo"<a href='devolvido.php'> Livros devolvidos</a>";
 echo "</div>";
-$db->close();
-?>
 
+$db->close();
+
+?>
