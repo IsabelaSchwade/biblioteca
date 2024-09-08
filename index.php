@@ -105,6 +105,8 @@ echo "</div>";
 echo"<br>";
 echo"<br>";
 echo"<a href='emprestimo.php'> Meus empréstimos</a>";
+echo"<br>";
+echo"<br>";
 echo"<a href='devolvido.php'> Livros devolvidos</a>";
 
 $db->close();
