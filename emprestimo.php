@@ -1,5 +1,5 @@
 <?php
-echo "<link rel='stylesheet' type='text/css' href='style.css'>";
+echo "<link rel='stylesheet' type='text/css' href='Style.css'>";
 
 $db = new mysqli("localhost", "root", "", "biblioteca");
 
@@ -28,14 +28,15 @@ echo "<tr>
 
 if ($resultadoEmprestimo->num_rows == 0) {
     echo "<tr><td>Você não emprestou nenhum livro!</td></tr>";
-} else {
+
+}else {
     while ($linha = $resultadoEmprestimo->fetch_assoc()) {
         echo "<tr>";
             echo "<td>{$linha['nome_pessoa']}</td>";
             echo "<td>{$linha['email_pessoa']}</td>";
             echo "<td>{$linha['nome_livro']}</td>";
             echo "<td>{$linha['data_emprestimo']}</td>";
-            echo "<td><a href='form_addDevolucao.php?id_emprestimo={$linha['id_emprestimo']}' class='separador'>Marcar devolução</a> |
+            echo "<td><a href='form_addDevolucao.php?id_emprestimo={$linha['id_emprestimo']}' class='separador'>Marcar devolução</a> 
                      
                  </td>";
         echo "</tr>";
@@ -48,8 +49,10 @@ echo "</table>";
 $db->close();
 echo"<br>";
 echo"<br>";
+echo" <div class='link-container'>";
 echo "<a href='form_addEmprestimo.php'>Adicionar novo empréstimo</a><br>";
 echo"<br>";
-echo"<br>";
+
 echo "<a href='index.php'>Voltar para página inicial</a><br>";
+echo"</div>"
 ?>

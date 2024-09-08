@@ -1,5 +1,5 @@
 <?php
-echo"<link rel='stylesheet' type='text/css' href='style.css'> ";
+echo "<link rel='stylesheet' type='text/css' href='Style.css'>";
 if (isset($_GET['id'])) {
     // Conexão com o banco de dados
     $db = new mysqli("localhost", "root", "", "biblioteca");
@@ -35,7 +35,7 @@ if (isset($_GET['id'])) {
 </head>
 <body>
     <h1>Editar Livro</h1>
-    <form method="post" action="editLivro.php" enctype="multipart/form-data">
+    <form method="post" action="editLivro.php" enctype="multipart/form-data" >
         <label for="nome_livro">Título</label>
         <input type="text" id="nome_livro" required name="nome_livro" value="<?php echo htmlspecialchars($livro['nome_livro']); ?>">
         <br>
@@ -64,6 +64,8 @@ if (isset($_GET['id'])) {
         <input type="hidden" id="id" name="id" value="<?php echo htmlspecialchars($livro['id']); ?>">
         <input type="submit" name="botao" value="Editar">
     </form>
+    <div class='link-container'>; 
     <a href='index.php'>Voltar para a página inicial</a>
+        </div>;
 </body>
 </html>

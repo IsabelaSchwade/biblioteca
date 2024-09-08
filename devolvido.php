@@ -1,5 +1,6 @@
 <?php
-echo "<link rel='stylesheet' type='text/css' href='style.css'>";
+echo "<link rel='stylesheet' type='text/css' href='
+Style.css'>";
 
 $db = new mysqli("localhost", "root", "", "biblioteca");
 
@@ -47,5 +48,9 @@ echo "</table>";
 $db->close();
 
 echo "<br><br>";
+
+echo" <div class='link-container'>";
 echo "<a href='index.php'>Voltar para página inicial</a><br>";
+echo"</div>"
+
 ?>

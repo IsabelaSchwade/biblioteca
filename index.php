@@ -1,5 +1,5 @@
 <?php
-echo "<link rel='stylesheet' type='text/css' href='style.css'>";
+echo "<link rel='stylesheet' type='text/css' href='Style.css'>";
 
 $db = new mysqli("localhost", "root", "", "biblioteca");
 
@@ -62,7 +62,9 @@ if ($resultadoLivros->num_rows == 0) {
 }
 echo "</table>";
 echo"<br>";
+echo "<div class='link-container'>"; 
 echo "<a href='form_adicionarLivro.php'>Adicionar novo livro</a><br>";
+echo "</div>";
 echo "<h2>Autores</h2>";
 
 echo <<<HTML
@@ -100,14 +102,12 @@ if ($resultadoAutores->num_rows == 0) {
 echo "</table>";
 echo "<br>";
 echo "<div class='link-container'>"; 
-echo "<a href='form_adicionarAutor.php'>Adicionar novo autor</a><br>";
-echo "</div>";
-echo"<br>";
+echo "<a href='form_adicionarAutor.php'>Adicionar novo autor</a>";
 echo"<br>";
 echo"<a href='emprestimo.php'> Meus empréstimos</a>";
 echo"<br>";
-echo"<br>";
 echo"<a href='devolvido.php'> Livros devolvidos</a>";
-
+echo "</div>";
 $db->close();
 ?>
+

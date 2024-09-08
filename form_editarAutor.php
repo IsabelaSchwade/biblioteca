@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel='stylesheet' type='text/css' href='style.css'> 
+    <link rel='stylesheet' type='text/css' href='Style.css'>;
     <title>Editar Autor</title>
 </head>
 <body>
@@ -26,7 +26,9 @@
     </form>
     <br>
     <br>
+    <div class='link-container'>; 
     <a href='index.php'>Voltar para a página inicial</a>
+        </div>;
     <br>
     <br>
     

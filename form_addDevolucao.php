@@ -1,6 +1,6 @@
 <?php
 // Inclui o arquivo CSS
-echo "<link rel='stylesheet' type='text/css' href='style.css'>";
+echo "<link rel='stylesheet' type='text/css' href='Style.css'>";
 
 // Verifica se o ID do empréstimo foi passado
 if (isset($_GET['id_emprestimo'])) {
@@ -108,6 +108,8 @@ if (isset($_GET['id_emprestimo'])) {
     </form>
 
     <!-- Link para voltar à página inicial -->
+    <div class='link-container'>
     <a href='index.php'>Voltar para a página inicial</a>
+        </div>
 </body>
 </html>

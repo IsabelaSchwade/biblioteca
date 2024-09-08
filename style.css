@@ -1,56 +1,143 @@
-*{
-    font-family: Arial, Helvetica, sans-serif;
+/* Define a fonte padrão e o tamanho do texto */
+body {
+    font-family: Arial, sans-serif;
+    color: #4a4a4a;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
 }
 
-/* Estilo para a tabela e suas células */
-
-*{
-    font-family: Arial, Helvetica, sans-serif;
+/* Estiliza o título principal */
+h1 {
+    color: #6a0dad;
+    text-align: center;
+    padding: 20px;
 }
+
+/* Estiliza os subtítulos */
+h2 {
+    color: #6a0dad;
+    border-bottom: 2px solid #e1bee7;
+    padding-bottom: 10px;
+    margin: 20px 0;
+    text-align: center;
+}
+
+/* Estiliza os formulários */
+form {
+    margin: 20px auto;
+    padding: 10px;
+    max-width: 600px;
+    background-color: #e1bee7;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* Estiliza os labels dentro dos formulários */
+form label {
+    display: block;
+    margin: 10px 0 5px;
+    color: #4a4a4a;
+}
+
+/* Estiliza os campos de input e select */
+form input[type="text"],
+form input[type="email"],
+form input[type="date"],
+form select {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #d4a5a5;
+    margin: 5px 0;
+    display: block;
+    width: calc(100% - 22px);
+    box-sizing: border-box;
+}
+
+/* Estiliza o botão de submit */
+form input[type="submit"] {
+    background-color: #6a0dad;
+    color: white;
+    cursor: pointer;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+
+form input[type="submit"]:hover {
+    background-color: #4a00a2;
+}
+
+/* Estiliza as tabelas */
 table {
-    border-collapse: collapse; /* Combina bordas adjacentes */
-    width: 100%; /* Define a largura da tabela como 100% */
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    border-radius: 5px;
+    overflow: hidden;
 }
 
 td, th {
-    padding: 8px; /* Adiciona espaço de 8 pixels em todas as células */
-    border: 1px solid #ddd; /* Adiciona bordas finas para as células */
-    text-align: left; /* Alinha o texto à esquerda */
+    padding: 10px;
+    border: 1px solid #d4a5a5;
+    text-align: left;
 }
 
-/* Estilo para cabeçalhos da tabela */
-th {
-    background-color: #f2f2f2; /* Cor de fundo para os cabeçalhos */
-    font-weight: bold; /* Negrito para os cabeçalhos */
+tr:nth-child(even) {
+    background-color: #f9f9f9;
 }
 
-h1, h2 {
-    text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
-    color:deepskyblue;
+tr:hover {
+    background-color: #e1bee7;
 }
 
+/* Estiliza as imagens */
+img {
+    max-width: 200px;
+    height: auto;
+    border-radius: 10px; /* Bordas arredondadas para imagens */
+}
+
+/* Estiliza links e separadores */
 a {
-    text-decoration: none; /* Remove o sublinhado dos links */
-    color:black 
+    color: #6a0dad;
+    text-decoration: none;
 }
 
 a:hover {
-    color: deepskyblue; /* Define a cor do link ao passar o mouse */
-    text-decoration: underline; /* Adiciona o sublinhado ao passar o mouse */
+    text-decoration: underline;
 }
 
 .separador {
-    border-left: 1px solid #000; /* Adiciona uma linha vertical à esquerda */
-    padding-left: 10px; /* Adiciona espaço após a linha */
-    margin-left: 10px; /* Adiciona espaço antes da linha */
+    margin-left: 10px;
 }
 
+/* Estiliza o container dos links adicionais */
 .link-container {
-    text-align: center; /* Centraliza o conteúdo dentro do contêiner */
-    margin-top: 20px; /* Adiciona espaço acima do contêiner */
+    text-align: center;
+    margin: 20px auto;
 }
 
-h2{
+.link-container a {
+    display: block;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    background-color: #6a0dad; /* Cor lilás mais escura */
+    margin: 5px 0;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.link-container a:hover {
+    background-color: #4a00a2;
+}
+
+.link-container2 {
     text-align: center;
+    margin: 20px auto;
 }
