@@ -12,7 +12,7 @@
 
 <?php
 $db = new mysqli("localhost", "root", "", "biblioteca");
-$query_livros = "SELECT id, nome_livro FROM livro";
+$query_livros = "SELECT id, nome_livro FROM livro WHERE status = 'disponivel'";
 $resultado_livros = $db->query($query_livros);
 ?>
 

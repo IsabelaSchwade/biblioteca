@@ -1,7 +1,6 @@
 <?php
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
     $db = new mysqli("localhost", "root", "", "biblioteca");
 
     // Verificar se a conexão foi bem-sucedida
@@ -16,15 +15,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $pessoa = $db->real_escape_string($_POST['nome_pessoa']);
     $email = $db->real_escape_string($_POST['email_pessoa']);
-    $livro_emprestado = intval($_POST['id_livro']); // Use intval para garantir que é um número
+    $livro_emprestado = intval($_POST['id_livro']);
     $data_emprestimo = $db->real_escape_string($_POST['data_emprestimo']);
 
-    // Verificar se o livro existe
-    $query_verifica_livro = "SELECT id FROM livro WHERE id = $livro_emprestado";
+    // Verificar se o livro já está emprestado
+    $query_verifica_livro = "SELECT status FROM livro WHERE id = $livro_emprestado";
     $resultado_verifica_livro = $db->query($query_verifica_livro);
 
     if ($resultado_verifica_livro->num_rows === 0) {
         die("O livro selecionado não existe.");
+    }
+
+    $livro = $resultado_verifica_livro->fetch_assoc();
+    if ($livro['status'] === 'emprestado') {
+        die("Este livro já está emprestado e não pode ser emprestado novamente até ser devolvido.");
     }
 
     // Inserir o novo empréstimo
@@ -33,6 +37,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     try {
         if ($db->query($query) === TRUE) {
+            // Atualizar o status do livro para 'emprestado'
+            $query_atualizar_status = "UPDATE livro SET status = 'emprestado' WHERE id = $livro_emprestado";
+            $db->query($query_atualizar_status);
+
             header("Location: emprestimo.php");
             exit();
         } else {
@@ -44,4 +52,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $db->close();
 }
+
 ?>
