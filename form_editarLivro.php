@@ -1,15 +1,11 @@
 <?php
+echo"<link rel='stylesheet' type='text/css' href='style.css'> ";
 if (isset($_GET['id'])) {
     // Conexão com o banco de dados
     $db = new mysqli("localhost", "root", "", "biblioteca");
 
-    // Verifica se a conexão foi bem-sucedida
-    if ($db->connect_error) {
-        die("Erro de conexão: " . $db->connect_error);
-    }
-
     // Escapar valor para evitar SQL Injection
-    $idlivro = (int) $_GET['id'];
+    $idlivro = $_GET['id'];
 
     // Query de consulta para buscar detalhes do livro
     $query = "SELECT * FROM livro WHERE id = $idlivro";
