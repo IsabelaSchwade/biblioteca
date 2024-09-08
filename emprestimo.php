@@ -35,7 +35,7 @@ if ($resultadoEmprestimo->num_rows == 0) {
             echo "<td>{$linha['email_pessoa']}</td>";
             echo "<td>{$linha['nome_livro']}</td>";
             echo "<td>{$linha['data_emprestimo']}</td>";
-            echo "<td><a href='deleteLivro.php?id_emprestimo={$linha['id_emprestimo']}' class='separador'>Marcar devolução</a> |
+            echo "<td><a href='form_addDevolucao.php?id_emprestimo={$linha['id_emprestimo']}' class='separador'>Marcar devolução</a> |
                      
                  </td>";
         echo "</tr>";
