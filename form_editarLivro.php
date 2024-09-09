@@ -1,13 +1,13 @@
 <?php
 echo "<link rel='stylesheet' type='text/css' href='Style.css'>";
 if (isset($_GET['id'])) {
-    // Conexão com o banco de dados
+
     $db = new mysqli("localhost", "root", "", "biblioteca");
 
-    // Escapar valor para evitar SQL Injection
+    
     $idlivro = $_GET['id'];
 
-    // Query de consulta para buscar detalhes do livro
+    
     $query = "SELECT * FROM livro WHERE id = $idlivro";
     $resultado = $db->query($query);
 
@@ -18,7 +18,7 @@ if (isset($_GET['id'])) {
         exit();
     }
 
-    // Query para buscar todos os autores
+    
     $query_autores = "SELECT id_autor, nome_autor FROM autor";
     $resultado_autores = $db->query($query_autores);
 
@@ -46,7 +46,7 @@ if (isset($_GET['id'])) {
         <select id="id_autor" required name="id_autor">
             <option value="">Selecione o autor</option>
             <?php
-            // Preencher o dropdown com os autores
+            
             if ($resultado_autores->num_rows > 0) {
                 while ($autor = $resultado_autores->fetch_assoc()) {
                     $selected = ($autor['id_autor'] == $livro['autor_livro']) ? 'selected' : '';

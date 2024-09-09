@@ -5,11 +5,11 @@ if (isset($_POST)) {
     $db = new mysqli("localhost", "root", "", "biblioteca");
     $diretorioDestino = "uploads/";
 
-    // Verifica se houve algum erro no upload
+    
     if (isset($_FILES['foto_capa']) && $_FILES['foto_capa']['error'] == 0) {
         $destinoArquivo = $diretorioDestino . basename($_FILES['foto_capa']['name']);
 
-        // Verificar se o arquivo é uma imagem
+        
         $checagem_imagem = getimagesize($_FILES['foto_capa']['tmp_name']);
         if ($checagem_imagem !== false) {
             if (move_uploaded_file($_FILES['foto_capa']['tmp_name'], $destinoArquivo)) {
@@ -31,7 +31,7 @@ if (isset($_POST)) {
     $data_lancamento = $_POST['data_lancamento'];
     $id_autor = $_POST['id_autor'];
 
-    // Verificar se o autor existe
+    
     $query_autor = "SELECT id_autor FROM autor WHERE id_autor = $id_autor";
     $resultado_autor = $db->query($query_autor);
 

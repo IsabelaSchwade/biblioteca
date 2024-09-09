@@ -3,37 +3,33 @@ echo "<link rel='stylesheet' type='text/css' href='Style.css'>";
 
 $db = new mysqli("localhost", "root", "", "biblioteca");
 
-if ($db->connect_error) {
-    die("Conexão falhou: " . $db->connect_error);
-}
 
-// Capturar a ordenação escolhida para livros
 $ordenarLivroPor = isset($_GET['ordenar_por']) ? $_GET['ordenar_por'] : '';
 
-// Consulta base para livros
+
 $queryLivros = "SELECT livro.*, autor.nome_autor 
                 FROM livro 
                 JOIN autor ON livro.autor_livro = autor.id_autor";
 
-// Adicionar a cláusula de ordenação conforme a opção selecionada
+
 if ($ordenarLivroPor === 'nome_livro') {
-    $queryLivros .= " ORDER BY livro.nome_livro ASC"; // Ordena por título do livro
+    $queryLivros .= " ORDER BY livro.nome_livro ASC"; 
 } elseif ($ordenarLivroPor === 'autor_livro') {
-    $queryLivros .= " ORDER BY autor.nome_autor ASC"; // Ordena por nome do autor
+    $queryLivros .= " ORDER BY autor.nome_autor ASC"; 
 } elseif ($ordenarLivroPor === 'data_lancamento') {
-    $queryLivros .= " ORDER BY livro.data_lancamento ASC"; // Ordena por data de lançamento, do mais recente ao mais antigo
+    $queryLivros .= " ORDER BY livro.data_lancamento ASC"; 
 }
 
 $resultadoLivros = $db->query($queryLivros);
 
-// Capturar a ordenação escolhida para autores
+
 $ordenarAutorPor = isset($_GET['ordenarAutor_por']) ? $_GET['ordenarAutor_por'] : '';
 
-// Definir a consulta para autores com ou sem ordenação
+
 $queryAutores = "SELECT * FROM autor";
 
 if ($ordenarAutorPor === 'nome_autor') {
-    $queryAutores .= " ORDER BY nome_autor ASC"; // Ordena pelo nome do autor em ordem alfabética
+    $queryAutores .= " ORDER BY nome_autor ASC"; 
 }
 
 $resultadoAutores = $db->query($queryAutores);
@@ -41,7 +37,7 @@ $resultadoAutores = $db->query($queryAutores);
 echo "<h1>Biblioteca</h1>";
 echo "<h2>Livros</h2>";
 
-// Formulário de ordenação de livros
+
 echo <<<HTML
 <form method="get" action="">
     <label for="ordenar_por">Ordenar livro por:</label>
@@ -90,7 +86,6 @@ echo "</div>";
 
 echo "<h2>Autores</h2>";
 
-// Formulário de ordenação de autores
 echo <<<HTML
 <form method="get" action="">
     <label for="ordenarAutor_por">Ordenar autor por:</label>
