@@ -9,7 +9,7 @@
 <body>
     <h1>Editar Autor</h1>
     <?php
-    // Conectar ao banco de dados e pegar o ID do autor
+    
     $db = new mysqli("localhost", "root", "", "biblioteca");
     $id_autor = $_GET['id_autor'];
     $result = $db->query("SELECT nome_autor FROM autor WHERE id_autor = $id_autor");

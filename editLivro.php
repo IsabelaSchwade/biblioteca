@@ -1,6 +1,6 @@
 <?php
 if (isset($_POST)) {
-    // Conexão com o banco de dados
+    /
     $db = new mysqli("localhost", "root", "", "biblioteca");
 
     
@@ -9,10 +9,8 @@ if (isset($_POST)) {
     $id_autor = $_POST['id_autor'];
     $idlivro = $_POST['id'];
 
-    // Query de atualização
     $query = "UPDATE livro SET nome_livro = '$nome_livro', data_lancamento = '$data_lancamento', autor_livro = $id_autor WHERE id = $idlivro";
 
-    // Executa a consulta e verifica se foi bem-sucedida
     if ($db->query($query) === TRUE) {
         header("Location: index.php");
         exit();
