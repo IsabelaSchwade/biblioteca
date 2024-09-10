@@ -3,14 +3,11 @@ echo "<link rel='stylesheet' type='text/css' href='Style.css'>";
 
 $db = new mysqli("localhost", "root", "", "biblioteca");
 
-// Verifique se a conexão com o banco de dados foi bem-sucedida
-if ($db->connect_error) {
-    die("Conexão falhou: " . $db->connect_error);
-}
+
 
 $queryEmprestimo = "SELECT emprestimo.*, livro.nome_livro 
     FROM emprestimo
-    JOIN livro ON livro.id = emprestimo.id_livro"; // Supondo que a coluna de ligação seja 'id_livro'
+    JOIN livro ON livro.id = emprestimo.id_livro";
 
 $resultadoEmprestimo = $db->query($queryEmprestimo);
 
@@ -36,7 +33,7 @@ if ($resultadoEmprestimo->num_rows == 0) {
             echo "<td>{$linha['email_pessoa']}</td>";
             echo "<td>{$linha['nome_livro']}</td>";
             echo "<td>{$linha['data_emprestimo']}</td>";
-            echo "<td><a href='form_addDevolucao.php?id_emprestimo={$linha['id_emprestimo']}' class='separador'>Marcar devolução</a> 
+            echo "<td><a href='form_addDevolucao.php?id_emprestimo={$linha['id_emprestimo']}'>Marcar devolução</a> 
                      
                  </td>";
         echo "</tr>";

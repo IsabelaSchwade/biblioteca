@@ -1,20 +1,20 @@
-/* Define a fonte padrão e o tamanho do texto */
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: Arial;
     color: #4a4a4a;
     background-color: #f2f2f2;
     margin: 0;
     padding: 0;
 }
 
-/* Estiliza o título principal */
+
 h1 {
     color: #6a0dad;
     text-align: center;
     padding: 20px;
 }
 
-/* Estiliza os subtítulos */
+
 h2 {
     color: #6a0dad;
     border-bottom: 2px solid #e1bee7;
@@ -23,7 +23,7 @@ h2 {
     text-align: center;
 }
 
-/* Estiliza os formulários */
+
 form {
     margin: 20px auto;
     padding: 10px;
@@ -33,14 +33,14 @@ form {
     text-align: center;
 }
 
-/* Estiliza os labels dentro dos formulários */
+
 form label {
     display: block;
     margin: 10px 0 5px;
     color: #4a4a4a;
 }
 
-/* Estiliza os campos de input e select */
+
 form input[type="text"],
 form input[type="email"],
 form input[type="date"],
@@ -54,7 +54,7 @@ form select {
     box-sizing: border-box;
 }
 
-/* Estiliza o botão de submit */
+
 form input[type="submit"] {
     background-color: #6a0dad;
     color: white;
@@ -69,7 +69,7 @@ form input[type="submit"]:hover {
     background-color: #4a00a2;
 }
 
-/* Estiliza as tabelas */
+
 table {
     width: 80%;
     margin: 20px auto;
@@ -93,14 +93,14 @@ tr:hover {
     background-color: #e1bee7;
 }
 
-/* Estiliza as imagens */
+
 img {
     max-width: 200px;
     height: auto;
-    border-radius: 10px; /* Bordas arredondadas para imagens */
+    border-radius: 10px; 
 }
 
-/* Estiliza links e separadores */
+
 a {
     color: #6a0dad;
     text-decoration: none;
@@ -114,7 +114,7 @@ a:hover {
     margin-left: 10px;
 }
 
-/* Estiliza o container dos links adicionais */
+
 .link-container {
     text-align: center;
     margin: 20px auto;
@@ -126,7 +126,7 @@ a:hover {
     padding: 10px;
     border-radius: 5px;
     text-decoration: none;
-    background-color: #6a0dad; /* Cor lilás mais escura */
+    background-color: #6a0dad; 
     margin: 5px 0;
     max-width: 300px;
     margin-left: auto;
@@ -137,7 +137,3 @@ a:hover {
     background-color: #4a00a2;
 }
 
-.link-container2 {
-    text-align: center;
-    margin: 20px auto;
-}
