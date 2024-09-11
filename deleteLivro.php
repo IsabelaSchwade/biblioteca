@@ -4,7 +4,7 @@ if (isset($_GET['id'])) {
     $livroId = ($_GET['id']);
 
     $db = new mysqli("localhost", "root", "", "biblioteca");
-
+ 
     $queryVerificaEmprestimo = "SELECT * FROM emprestimo WHERE id_livro = $livroId";
     $resultadoVerificaEmprestimo = $db->query($queryVerificaEmprestimo);
 

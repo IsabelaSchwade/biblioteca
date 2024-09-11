@@ -1,7 +1,7 @@
 <?php
 echo "<link rel='stylesheet' type='text/css' href='Style.css'>";
 
-$db = new mysqli("localhost", "root", "", "biblioteca");
+$db = new mysqli("localhost", "root", "", "biblioteca"); 
 
 
 $ordenarLivroPor = isset($_GET['ordenar_por']) ? $_GET['ordenar_por'] : '';
@@ -63,7 +63,7 @@ echo "<tr>
     </tr>";
 
 if ($resultadoLivros->num_rows == 0) {
-    echo "<tr><td colspan='6'>Você ainda não cadastrou livros na sua biblioteca</td></tr>";
+    echo "<tr><td>Você ainda não cadastrou livros na sua biblioteca</td></tr>";
 } else {
     while ($linha = $resultadoLivros->fetch_assoc()) {
         echo "<tr>";
@@ -130,4 +130,4 @@ echo "</div>";
 
 $db->close();
 
-?>
+?> 

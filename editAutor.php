@@ -1,12 +1,12 @@
 <?php
-if (isset($_POST['nome_autor']) && isset($_POST['id_autor'])) {
+if (isset($_POST)) {
     
     $db = new mysqli("localhost", "root", "", "biblioteca");
 
     
     $nome_autor = ($_POST['nome_autor']);
     $id_autor = ($_POST['id_autor']);
-    
+     
     
     $query = "UPDATE autor SET nome_autor = '$nome_autor' WHERE id_autor = $id_autor";
 

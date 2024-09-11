@@ -4,7 +4,6 @@ echo "<link rel='stylesheet' type='text/css' href='Style.css'>";
 $db = new mysqli("localhost", "root", "", "biblioteca");
 
 
-
 $queryEmprestimo = "SELECT emprestimo.*, livro.nome_livro 
     FROM emprestimo
     JOIN livro ON livro.id = emprestimo.id_livro";
@@ -39,10 +38,9 @@ if ($resultadoEmprestimo->num_rows == 0) {
         echo "</tr>";
     }
 }
-
+ 
 echo "</table>";
 
-// Feche a conexão com o banco de dados
 $db->close();
 echo"<br>";
 echo"<br>";

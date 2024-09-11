@@ -24,7 +24,7 @@
         <input type="submit" name="botao" value="Atualizar">
         <br>
     </form>
-    <br>
+    <br> 
     <br>
     <div class='link-container'>; 
     <a href='index.php'>Voltar para a página inicial</a>

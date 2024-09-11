@@ -1,21 +1,16 @@
 <?php
-echo "<link rel='stylesheet' type='text/css' href='
-Style.css'>";
+echo "<link rel='stylesheet' type='text/css' href='Style.css'>";
 
 $db = new mysqli("localhost", "root", "", "biblioteca");
 
-// Verifique se a conexão com o banco de dados foi bem-sucedida
-if ($db->connect_error) {
-    die("Conexão falhou: " . $db->connect_error);
-}
 
-// Corrigir a consulta para verificar devoluções
+
 $queryDevolucao = "SELECT historicoemprestimos.*, livro.nome_livro 
     FROM historicoemprestimos
     JOIN livro ON livro.id = historicoemprestimos.id_livro"; 
 
 $resultadoDevolucao = $db->query($queryDevolucao);
-
+ 
 echo "<h1>Histórico de devoluções</h1>";
 
 echo "<br><br>";
@@ -44,7 +39,6 @@ if ($resultadoDevolucao->num_rows == 0) {
 
 echo "</table>";
 
-// Feche a conexão com o banco de dados
 $db->close();
 
 echo "<br><br>";

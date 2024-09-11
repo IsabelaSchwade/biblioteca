@@ -36,7 +36,7 @@ $resultado_autores = $db->query($query_autores);
             echo "<option value=''>Nenhum autor cadastrado</option>";
         }
         ?>
-    </select>
+    </select> 
 
     <label>Foto da capa do livro:</label>
     <input type="file" id="foto_capa" name="foto_capa" accept="image/*">

@@ -48,7 +48,8 @@ if (isset($_POST)) {
     } else {
         echo "Autor não encontrado!";
     }
-
+ 
     $db->close();
 }
 ?>
+ 

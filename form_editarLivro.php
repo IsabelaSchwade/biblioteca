@@ -67,5 +67,6 @@ if (isset($_GET['id'])) {
     <div class='link-container'>; 
     <a href='index.php'>Voltar para a página inicial</a>
         </div>;
-</body>
+</body> 
 </html>
+ 
